@@ -1,0 +1,31 @@
+<Module>
+	<Name value="WarAndAiTweaks"/>
+	<Id value="WarAndAiTweaks"/>
+	<Version value="d0.0.0"/>
+	<SingleplayerModule value="true"/>
+	<MultiplayerModule value="false"/>
+	<Url value="https://www.nexusmods.com/mountandblade2bannerlord/users/19304654?tab=user+files"/>
+	<DependedModules>
+		<DependedModule Id="Bannerlord.Harmony" DependentVersion="v1.0.0"/>
+		<DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v1.0.0"/>
+		<DependedModule Id="Native" DependentVersion="v1.0.0"/>
+		<DependedModule Id="SandBoxCore" DependentVersion="v1.0.0"/>
+		<DependedModule Id="Sandbox" DependentVersion="v1.0.0"/>
+		<DependedModule Id="StoryMode" DependentVersion="v1.0.0"/>
+		<DependedModule Id="CustomBattle" DependentVersion="v1.0.0"/>
+		<DependedModule Id="BetterCore" DependentVersion="v1.0.0"/>
+	</DependedModules>
+	<SubModules>
+		<SubModule>
+			<Name value="WarAndAiTweaks"/>
+			<DLLName value="WarAndAiTweaks.dll"/>
+			<SubModuleClassType value="WarAndAiTweaks.WarAndAiTweaks"/>
+			<Tags>
+				<Tag key="DedicatedServerType" value="none"/>
+				<Tag key="IsNoRenderModeElement" value="false"/>
+			</Tags>
+		</SubModule>
+	</SubModules>
+	<Xmls>
+	</Xmls>
+</Module>
