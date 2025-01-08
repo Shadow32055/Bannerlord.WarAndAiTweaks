@@ -13,12 +13,14 @@ namespace WarAndAiTweaks {
     [HarmonyPatch(typeof(DefaultArmyManagementCalculationModel), "GetMobilePartiesToCallToArmy")]
     [HarmonyPriority(999)]
     public class PreventClanMembersBeingCalledToAiArmiesPatch {
-        // Token: 0x06000001 RID: 1 RVA: 0x00002048 File Offset: 0x00000248
         public static void Postfix(MobileParty leaderParty, List<MobileParty> __result) {
             //If disabled, skip logic
-            if (!WarAndAiTweaks.Settings.EnablePreventClanMembersFromBeingCalledToArmies) { return; }
+            if (!WarAndAiTweaks.Settings.EnablePreventClanMembersFromBeingCalledToArmies)
+                return;
+
             //Check for nulls
-            if (leaderParty == null || leaderParty.LeaderHero == null || leaderParty.Army == null || __result == null || __result.Count == 0) { return; }
+            if (leaderParty == null || leaderParty.LeaderHero == null || leaderParty.Army == null || __result == null || __result.Count == 0)
+                return;
 
             //Start
             if (leaderParty.LeaderHero != Hero.MainHero) {
@@ -32,12 +34,14 @@ namespace WarAndAiTweaks {
     [HarmonyPatch(typeof(DefaultArmyManagementCalculationModel), "GetMobilePartiesToCallToArmy")]
     [HarmonyPriority(998)]
     public class ArmyCallPartiesPatch {
-        // Token: 0x06000001 RID: 1 RVA: 0x00002048 File Offset: 0x00000248
         public static void Postfix(MobileParty leaderParty, List<MobileParty> __result) {
             //If disabled, skip logic
-            if (!WarAndAiTweaks.Settings.EnableArmyInfluenceChanges) { return; }
+            if (!WarAndAiTweaks.Settings.EnableArmyInfluenceChanges)
+                return;
+
             //Check for nulls
-            if (leaderParty == null || leaderParty.LeaderHero == null || leaderParty.LeaderHero.PartyBelongedTo == null || leaderParty.LeaderHero.Clan == null || leaderParty.Army == null) { return; }
+            if (leaderParty == null || leaderParty.LeaderHero == null || leaderParty.LeaderHero.PartyBelongedTo == null || leaderParty.LeaderHero.Clan == null || leaderParty.Army == null)
+                return;
 
             //Start
             List<MobileParty> partiesEligible = new List<MobileParty>();
@@ -85,48 +89,60 @@ namespace WarAndAiTweaks {
     }
 
     //Feature to change the amount of influence it costs to call parties by ruler by 1/2
-    // Token: 0x02000002 RID: 2
     [HarmonyPatch(typeof(DefaultArmyManagementCalculationModel), "CalculatePartyInfluenceCost")]
     [HarmonyPriority(999)]
     public class KingdomRulerCallPartyPatch {
-        // Token: 0x06000001 RID: 1 RVA: 0x00002048 File Offset: 0x00000248
         public static void Postfix(MobileParty armyLeaderParty, ref int __result) {
+
             //If disabled, skip logic
-            if (!WarAndAiTweaks.Settings.EnableRulerInflunceChange) { return; }
+            if (!WarAndAiTweaks.Settings.EnableRulerInfluenceChange)
+                return;
+
             //Check for nulls
-            if (armyLeaderParty == null || armyLeaderParty.LeaderHero == null || armyLeaderParty.LeaderHero.Clan == null || armyLeaderParty.LeaderHero.Clan.Kingdom == null) { return; }
+            if (armyLeaderParty == null || armyLeaderParty.LeaderHero == null || armyLeaderParty.LeaderHero.Clan == null || armyLeaderParty.LeaderHero.Clan.Kingdom == null)
+                return;
 
             //Start
-            if (armyLeaderParty.LeaderHero == armyLeaderParty.LeaderHero.Clan.Kingdom.RulingClan.Leader) { __result = __result / 2; }
-            return;
+            if (armyLeaderParty.LeaderHero == armyLeaderParty.LeaderHero.Clan.Kingdom.RulingClan.Leader) {
+                __result = __result / 2;
+
+                return;
+            }
         }
     }
 
     //Feature to change the amount of influence it costs to call parties by ruler by 1/2
-    // Token: 0x02000002 RID: 2
     [HarmonyPatch(typeof(Kingdom), "CreateArmy")]
     [HarmonyPriority(999)]
     public class CreateArmyPatch {
-        // Token: 0x06000001 RID: 1 RVA: 0x00002048 File Offset: 0x00000248
         public static bool Prefix(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes selectedArmyType) {
-            if (!WarAndAiTweaks.Settings.EnableMilitaryLogicChanges) { return true; }
-            if (armyLeader == Hero.MainHero) { return true; }
-            if (selectedArmyType != Army.ArmyTypes.Besieger && selectedArmyType != Army.ArmyTypes.Defender) { return false; }
+            if (!WarAndAiTweaks.Settings.EnableMilitaryLogicChanges)
+                return true;
+
+            if (armyLeader == Hero.MainHero)
+                return true;
+
+            if (selectedArmyType != Army.ArmyTypes.Besieger && selectedArmyType != Army.ArmyTypes.Defender)
+                return false;
+
             return true;
         }
     }
 
     //Feature to change the behavior of faction military
-    // Token: 0x02000002 RID: 2
     [HarmonyPatch(typeof(AiMilitaryBehavior), "AiHourlyTick")]
     [HarmonyPriority(999)]
     public class PartyThinkPartyPatch {
-        // Token: 0x06000001 RID: 1 RVA: 0x00002048 File Offset: 0x00000248
         public static void Postfix(MobileParty mobileParty, ref PartyThinkParams p) {
-            if (!WarAndAiTweaks.Settings.EnableMilitaryLogicChanges) { return; }
+            if (!WarAndAiTweaks.Settings.EnableMilitaryLogicChanges)
+                return;
 
-            if (!mobileParty.IsLordParty || mobileParty.LeaderHero == null || mobileParty.LeaderHero.Clan == null || mobileParty.LeaderHero.Clan.Kingdom == null) { return; }
-            if (mobileParty.Army != null && mobileParty.Army.LeaderParty != mobileParty) { return; }
+            if (!mobileParty.IsLordParty || mobileParty.LeaderHero == null || mobileParty.LeaderHero.Clan == null || mobileParty.LeaderHero.Clan.Kingdom == null)
+                return;
+
+            if (mobileParty.Army != null && mobileParty.Army.LeaderParty != mobileParty)
+                return;
+
             // Dont run changes on parties that are besieging, instead cancel the siege if the parties strength is lower than the settlement.
             if (mobileParty.BesiegedSettlement != null) {
                 if (mobileParty == MobileParty.MainParty)
@@ -148,9 +164,14 @@ namespace WarAndAiTweaks {
             //If nothing to attack, stop the logic
             List<IFaction> factionsAtWarWithSettlements = new List<IFaction>();
             var EnemyFactions = FactionManager.GetEnemyFactions(mobileParty.LeaderHero.Clan.Kingdom.MapFaction).Where(x => x.Settlements.Count > 0);
-            if (EnemyFactions.Count() <= 0) { return; }
-            foreach (IFaction faction in EnemyFactions) { factionsAtWarWithSettlements.Add(faction); }
-            if (factionsAtWarWithSettlements.Count <= 0) { return; }
+            if (EnemyFactions.Count() <= 0)
+                return;
+
+            foreach (IFaction faction in EnemyFactions)
+                factionsAtWarWithSettlements.Add(faction);
+
+            if (factionsAtWarWithSettlements.Count <= 0)
+                return;
 
             //If we need to send the lords to get troops, stop here
             //if (sendLordsToGetTroops(mobileParty, p)) { return; }
@@ -221,10 +242,8 @@ namespace WarAndAiTweaks {
         }
     }
 
-    // Token: 0x02000008 RID: 8
     [HarmonyPatch(typeof(AiMilitaryBehavior), "FindBestTargetAndItsValueForFaction")]
     public class FindBestTargetAndItsValueForFactionPatch {
-        // Token: 0x06000030 RID: 48 RVA: 0x00002908 File Offset: 0x00000B08
         private static void Postfix(Army.ArmyTypes missionType, PartyThinkParams p) {
             if (!WarAndAiTweaks.Settings.EnableMilitaryLogicChanges) { return; }
 

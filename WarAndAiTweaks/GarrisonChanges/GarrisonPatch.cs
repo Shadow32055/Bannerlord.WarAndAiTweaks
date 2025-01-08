@@ -4,10 +4,8 @@ using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Library;
 
 namespace WarAndAiTweaks.Militia_And_Garrison_Changes {
-    // Token: 0x02000016 RID: 22
     [HarmonyPatch(typeof(Town), "DailyGarrisonAdjustment")]
     public class GarrisonPatch {
-        // Token: 0x0600005C RID: 92 RVA: 0x000043B0 File Offset: 0x000025B0
         public static void Prefix(ref Town __instance) {
             if (WarAndAiTweaks.Settings.EnableRecruitmentChange) {
                 int num = __instance.GarrisonAutoRecruitmentIsEnabled ? __instance.GarrisonChangeAutoRecruitment : 0;

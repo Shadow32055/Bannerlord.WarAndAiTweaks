@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+	<tags>
+		<tag language="English" />
+	</tags>
+	<strings>
+		<string id="WAI_V8krxN" text="War and Peace/War Changes"/>
+		<string id="WAI_K6krtu" text="FillStacks"/>
+		<string id="WAI_sVRwEA" text="Militia Changes"/>
+		<string id="WAI_vBH4P5" text="Army Changes"/>
+		<string id="WAI_5AKRK0" text="Garrison Changes"/>
+		<string id="WAI_8g0U40" text="Garrison Changes/Cost Reduction"/>
+		<string id="WAI_3F0Jal" text="Band Together Logic"/>
+		<string id="WAI_OUkZom" text="Fiefs Create Movement Penalty"/>
+		<string id="WAI_N7DNB0" text="Party Speed Modifications"/>
+		
+		
+
+		<string id="WAI_Mf0D9r" text="Enable Changes For Declaring War"/>
+		<string id="WAI_yXzbqm" text="If enabled, changes logic so that only rulers can declare war and AI will only consider best target instead of a random one. Default = Enabled."/>
+		
+		<string id="WAI_3xcrKW" text="Enable Changes For Declaring Peace"/>
+		<string id="WAI_v92Ex5" text="If enabled, changes logic so that only rulers can declare peace and *BOTH* sides must agree to peace. (Both sides agreeing does not include player kingdom yet). Default = Enabled"/>
+		
+		<string id="WAI_YtXewV" text="Target Peace Time"/>
+		<string id="WAI_i0FVps" text="The amount of days an AI faction will consider a good amount of time to be at total peace to recoup loses and build up strength. This does not prevent them from declaring war before this amount of days if the opportunity arises. Default = 40"/>
+
+		<string id="WAI_YdzGi4" text="Other faction must agree to peace for player faction"/>
+		<string id="WAI_qDobnE" text="If enabled, the other faction must agree to peace before the player can propose it to their kingdom. Default = Enabled"/>
+		
+		
+		
+		<string id="WAI_naGmUB" text="Enable FillStacks"/>
+		<string id="WAI_naGmUg" text="This is an integrated mod removes the free troops that the AI gets when they respawn. Default = Enabled."/>
+		
+		<string id="WAI_ZYM5T1" text="FillStacks Troop Count"/>
+		<string id="WAI_7yzj1P" text="Controls the amount of free troops AI lords get when they respawn. Default = 3. (3 is used so they don't get captured immediately by bandits/looters)"/>
+		
+		<string id="WAI_zH5MWH" text="Mercenary Parties Apply"/>
+		<string id="WAI_z99bZB" text="If Enabled, Mercenary clans also follow fillstack rules."/>
+		
+		
+		
+		<string id="WAI_GaAeaG" text="Enable Militia Change"/>
+		<string id="WAI_WODJA5" text="Changes the bonuses to the barracks buildings in Towns/Castles to create more militia to defend. Default = Enabled"/>
+		
+		<string id="WAI_6Eyxyw" text="Castle Militia Bonus"/>
+		<string id="WAI_dka4CP" text="Control the bonus militia added to the barracks in a Castle. Default = 1.0; 0 = No Bonus"/>
+		
+		<string id="WAI_GINfAP" text="Town Militia Bonus"/>
+		<string id="WAI_5bULNj" text="Control the bonus militia added to the barracks in a Town. Default = 0.5; 0 = No Bonus"/>
+		
+		
+		
+		<string id="WAI_35dS0f" text="Enable Military Logic Changes"/>
+		<string id="WAI_354j0g" text="Changes the way AI behaves in war. Armies are not called for raiding and patrolling, only attacking and defending. Lord refill ranks from garrisons, lords and armies prioritize attacking and defending resulting in much less idling for factions at war. Default = Enabled"/>
+		
+		<string id="WAI_354j0f" text="Enable Army Influence Spending Chance"/>
+		<string id="WAI_35dS78" text="Changes the way that armies call other lord parties by increasing the amount of influence they can spend. Armies, in vanilla, cannot spend a lot of influence on calling armies. Default = Enabled"/>
+		
+		<string id="WAI_35d5rt" text="Enable Ruler Army Influence Cost Reduction"/>
+		<string id="WAI_hetS0f" text="If enabled, rulers of kingdoms require 50% of the influence it would normally require to call armies. Default = Enabled"/>
+		
+		<string id="WAI_hasd0f" text="Enable 'Prevent Clan Members From Being Called To Armies'"/>
+		<string id="WAI_as48wd" text="If enabled, your clan members can no longer be called to ai armies. Default = Enabled"/>
+		
+		
+		
+		<string id="WAI_em1a0r" text="Enable Recruitment Change"/>
+		<string id="WAI_gh3y7a" text="If enabled, changes the the auto recruitment for castles/towns so that instead of vanilla (+1 troop per day) it recruits from all available troops from local regions (Bound Villages/Town itself). Default = Enabled"/>
+		
+		<string id="WAI_2h95na" text="Enable Garrison Cost Reduction"/>
+		<string id="WAI_dl59ac" text="Enables the reduction of garrison party costs. Vanilla is 1-1 so you pay the same amount for troops in a garrison that you would in your party. Default = Enabled"/>
+		
+		<string id="WAI_3jf8sn" text="Garrison Cost Multiplier"/>
+		<string id="WAI_53ksnq" text="Multiplier for garrison costs. 0.5 = 50% cost; 0 = No Cost; Default = 0.5"/>
+
+
+
+		<string id="WAI_346heg" text="Band Together Logic"/>
+		<string id="WAI_OG9G6x" text="Very weak factions will 'band together' and do what it takes to survive. Calculation is party wage/recruit cost/influence to call armies are reduced by percentage past 10 fiefs. For example, if they have 3 fiefs left they will pay 30% of all before mentioned. This wont stop them from being destroyed by any means. But it will give them a chance. Includes Player Kingdom; Default = Enabled"/>
+		
+		<string id="WAI_K2bc20" text="Player Kingdom is included"/>
+		<string id="WAI_AgQghj" text="Determines if the player kingdom is included in the band together logic if you are the ruler of your kingdom; Default = False"/>
+		
+		
+		
+		<string id="WAI_UnjNW8" text="Castles and Towns now add a movement penalty for hostile parties/armies. Towns have a larger sphere influence than castles. Moving through hostile territory is now much more dangerous. Default = Enabled"/>
+		
+		
+		
+		<string id="WAI_LMYUJp" text="Toggle this off to prevent this mod from making party speed changes. Implemented for compatibility with Banner Kings. Default = Enabled"/>
+	</strings>
+</base>

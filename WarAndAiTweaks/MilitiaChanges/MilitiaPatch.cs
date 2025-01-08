@@ -8,16 +8,16 @@ namespace WarAndAiTweaks.MilitiaChanges {
 
         private static void Postfix(Building __instance, BuildingEffectEnum effect, ref float __result) {
 
-            if (WarAndAiTweaks.Settings.EnableMiltiaChange) {
+            if (WarAndAiTweaks.Settings.EnableMilitiaChange) {
                 bool flag2 = effect == BuildingEffectEnum.Militia && __instance.Name.ToString() == "Militia Grounds";
                 if (flag2) {
                     bool isCastle = __instance.Town.IsCastle;
                     if (isCastle) {
-                        __result += WarAndAiTweaks.Settings.CastleMiltiaBoost;
+                        __result += WarAndAiTweaks.Settings.CastleMilitiaBoost;
                     }
                     bool isTown = __instance.Town.IsTown;
                     if (isTown) {
-                        __result += WarAndAiTweaks.Settings.TownMiltiaBoost;
+                        __result += WarAndAiTweaks.Settings.TownMilitiaBoost;
                     }
                 }
             }
